@@ -8,6 +8,8 @@ export const MYROUTES = {
   ORDER_MANAGEMENT: "/order-management",
   MENU_ITEM_MANAGEMENT: "/menu-management",
   MENU_ITEM_DETAILS: "/menu/:id",
+  FORGOT_PASSWORD: "/forgot-password",
+  RESET_PASSWORD: "/reset-password"
 };
 
 export const BASE_API_URL = "http://localhost:5177";

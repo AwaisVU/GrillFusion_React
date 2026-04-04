@@ -10,6 +10,8 @@ import MenuItemManagement from "../pages/menu/MenuItemManagement";
 import { MYROUTES, ROLES } from "../utility/constants";
 import MenuItemDetails from "../pages/menu/MenuItemDetails";
 import RoleBasedRoute from "./RoleBasedRoute";
+import ForgotPassword from "../pages/auth/ForgotPassword";
+import ResetPassword from "../pages/auth/ResetPassword";
 
 const AppRoutes = () => {
   return (
@@ -17,6 +19,8 @@ const AppRoutes = () => {
       <Route path={MYROUTES.HOME} element={<Home />} />
       <Route path={MYROUTES.LOGIN} element={<Login />} />
       <Route path={MYROUTES.REGISTER} element={<Register />} />
+      <Route path={MYROUTES.FORGOT_PASSWORD} element={<ForgotPassword/>} />
+      <Route path={MYROUTES.RESET_PASSWORD} element={<ResetPassword/>}/>
 
       <Route
         path={MYROUTES.CART}

@@ -164,6 +164,12 @@ export default function Login() {
                   Create one
                 </Link>
               </div>
+              <div className="text-center small">
+                
+                <Link to={MYROUTES.FORGOT_PASSWORD} className="fw-semibold">
+                  Forgot Password
+                </Link>
+              </div>
               <div className="text-center mt-3 small">
                 <Link to={MYROUTES.HOME} className="text-decoration-none">
                   <i className="bi bi-arrow-left me-1"></i>Back to Home
