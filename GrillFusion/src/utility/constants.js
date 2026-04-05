@@ -9,10 +9,15 @@ export const MYROUTES = {
   MENU_ITEM_MANAGEMENT: "/menu-management",
   MENU_ITEM_DETAILS: "/menu/:id",
   FORGOT_PASSWORD: "/forgot-password",
-  RESET_PASSWORD: "/reset-password"
+  RESET_PASSWORD: "/reset-password",
+  ABOUT: "/about",
 };
 
-export const BASE_API_URL = "http://localhost:5177";
+//Basic for local development
+//export const BASE_API_URL = "http://localhost:5177";
+
+//Best For Local and Production
+export const BASE_API_URL = import.meta.env.VITE_API_BASE_URL
 
 export const CATEGORY = ["Burger", "Grill", "Sides", "Drinks"];
 export const SPECIAL_TAG = ["Best Seller", "Spicy", "New", "Chef's Choice"];
