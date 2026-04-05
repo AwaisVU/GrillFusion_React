@@ -83,7 +83,7 @@ export default function Cart() {
     }
 
     if (!user?.id) {
-      toast.error("User is not identified. Kindly login agin");
+      toast.error("User is not identified. Kindly login again");
     }
 
     const orderData = {
@@ -268,7 +268,7 @@ export default function Cart() {
                                   Subtotal
                                 </label>
                                 <div className="fw-bold text-primary fs-5">
-                                  $ {item.price * item.quantity}
+                                  $ {(item.price * item.quantity).toFixed(2)}
                                 </div>
                               </div>
 
@@ -298,7 +298,7 @@ export default function Cart() {
                     Cart Total: {totalItems}
                   </span>
                   <span className="fw-bold text-primary h4 mb-0">
-                    ${totalAmount}
+                    ${totalAmount.toFixed(2)}
                   </span>
                 </div>
               </div>
@@ -403,7 +403,7 @@ export default function Cart() {
                         ) : (
                           <>
                             <i className="bi bi-credit-card me-2"></i>
-                            Place Order (${totalAmount})
+                            Place Order (${totalAmount.toFixed(2)})
                           </>
                         )}
                       </button>

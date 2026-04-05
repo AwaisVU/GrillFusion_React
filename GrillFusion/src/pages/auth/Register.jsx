@@ -51,7 +51,7 @@ export default function Register() {
       name: formData.name,
       email: formData.email,
       password: formData.password,
-      role: formData.role
+      role: ROLES.CUSTOMER //In developemnt, can be changed to formData.Role
     }
 
     try{
@@ -168,7 +168,7 @@ export default function Register() {
                   </div>
                 </div>
 
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <label className="form-label small fw-semibold text-uppercase text-muted">
                     Role
                   </label>
@@ -182,7 +182,7 @@ export default function Register() {
                     <option value={ROLES.CUSTOMER}>{ROLES.CUSTOMER}</option>
                     <option value={ROLES.ADMIN}>{ROLES.ADMIN}</option>
                   </select>
-                </div>
+                </div> */}
 
                 <button
                   type="submit"

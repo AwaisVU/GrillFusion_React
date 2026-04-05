@@ -84,6 +84,7 @@ const handleDataSubmit = (e) => {
                     value={formData.category || ""}
                     onChange={onChange}
                   >
+                    <option key={""}>Select</option>
                     {CATEGORY.map((category)=> (<option key={category} value={category}>
                         {category}
                         </option>))}

@@ -12,6 +12,7 @@ import MenuItemDetails from "../pages/menu/MenuItemDetails";
 import RoleBasedRoute from "./RoleBasedRoute";
 import ForgotPassword from "../pages/auth/ForgotPassword";
 import ResetPassword from "../pages/auth/ResetPassword";
+import About from "../pages/About";
 
 const AppRoutes = () => {
   return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
       <Route path={MYROUTES.REGISTER} element={<Register />} />
       <Route path={MYROUTES.FORGOT_PASSWORD} element={<ForgotPassword/>} />
       <Route path={MYROUTES.RESET_PASSWORD} element={<ResetPassword/>}/>
+      <Route path={MYROUTES.ABOUT} element={<About/>} />
 
       <Route
         path={MYROUTES.CART}

@@ -56,7 +56,7 @@ export default function OrdersTable({
           </tr>
         </thead>
         <tbody>
-          {filteredOrder.map((ord) => (
+          {orders.map((ord) => (
             <tr key={ord.orderId}>
               <td>
                 <span className="badge bg-success">#{ord.orderId}</span>

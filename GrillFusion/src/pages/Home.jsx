@@ -237,7 +237,7 @@ export default function Home() {
         {/* Features Section */}
         <section className="py-5 border-top">
           <div className="text-center mb-5">
-            <h2 className="fw-bold">Why Choose MangoFusion?</h2>
+            <h2 className="fw-bold">Why Choose Grill Fusion?</h2>
             <p className="text-muted mb-0">
               We deliver freshness, flavor, and a premium ordering experience.
             </p>

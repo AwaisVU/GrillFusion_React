@@ -65,6 +65,14 @@ console.log(user);
                 My Orders
               </NavLink>
             </li>
+                        <li className="nav-item">
+              <NavLink
+                to={MYROUTES.ABOUT}
+                className="nav-link text-body"
+              >
+                About 
+              </NavLink>
+            </li>
           </ul>
           <ul className="navbar-nav ms-auto align-items-lg-center gap-lg-1">
             {/* Theme toggle visible for all users */}
