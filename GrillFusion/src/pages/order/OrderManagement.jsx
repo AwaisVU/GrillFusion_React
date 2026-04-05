@@ -5,28 +5,31 @@ import {
   useGetOrdersQuery,
   useGetOrderByIdQuery,
   useUpdateOrderMutation,
-  useUpdateOrderDetailMutation
+  useUpdateOrderDetailMutation,
 } from "../../store/api/ordersApi";
 import OrdersModal from "../../components/orders/OrdersModal";
 import { ORDER_STATUS_OPTIONS, ROLES } from "../../utility/constants";
 import { useSelector } from "react-redux";
 
 export default function OrderManagement() {
-  
-  const {user} = useSelector((state)=>state.auth);
+  const { user } = useSelector((state) => state.auth);
   const isAdmin = user?.role === ROLES.ADMIN;
 
   let userId = "";
-  if(!isAdmin && user){
+  if (!isAdmin && user) {
     userId = user.id;
   }
-  
+
   //FIRST, INIT ALL API CALLS:
 
   //The properties this object has are RTK builtin. Kinda need to remember
-  const { data: orders = [], isLoading, error, refetch } = useGetOrdersQuery(userId);
+  const {
+    data: orders = [],
+    isLoading,
+    error,
+    refetch,
+  } = useGetOrdersQuery(userId);
   const [updateOrder] = useUpdateOrderMutation();
-
 
   //Search and filter functionality
   const [searchBar, setSearchBar] = useState("");
@@ -74,10 +77,10 @@ export default function OrderManagement() {
           orderId: selectedOrder.orderId,
           formData: {
             status: updateData.status,
-            orderId: selectedOrder.orderId
+            orderId: selectedOrder.orderId,
           },
         }).unwrap();
-        
+
         if (result.isSuccess === true) {
           console.log(result);
           toast.success("Status updated");
@@ -86,8 +89,7 @@ export default function OrderManagement() {
         } else {
           toast.error("Update Failed");
         }
-      }
-      else{
+      } else {
         toast.error("Order not found");
       }
     } catch (error) {
@@ -96,6 +98,15 @@ export default function OrderManagement() {
       setIsSubmitting(false);
     }
   };
+
+  //For Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const ordersPerPage = 6;
+
+  const totalPages = Math.ceil(orders.length / ordersPerPage);
+  const startIndex = (currentPage - 1) * ordersPerPage;
+  const endIndex = startIndex + ordersPerPage;
+  const paginatedOrders = filteredOrder.slice(startIndex, endIndex);
 
   return (
     <div className="container-fluid p-4 mx-3">
@@ -148,13 +159,37 @@ export default function OrderManagement() {
             <div className="card-body">
               <OrdersTable
                 filteredOrder={filteredOrder}
-                orders={orders}
+                orders={paginatedOrders}
                 isLoading={isLoading}
                 error={error}
                 onEdit={onEdit}
               />
             </div>
           </div>
+
+          {totalPages > 1 && (
+            <div className="d-flex justify-content-center align-items-center gap-2 mt-3">
+              <button
+                className="btn btn-outline-secondary btn-sm"
+                disabled={currentPage === 1}
+                onClick={() => setCurrentPage(currentPage - 1)}
+              >
+                Previous
+              </button>
+
+              <span className="fw-semibold">
+                Page {currentPage} of {totalPages}
+              </span>
+
+              <button
+                className="btn btn-outline-secondary btn-sm"
+                disabled={currentPage === totalPages}
+                onClick={() => setCurrentPage(currentPage + 1)}
+              >
+                Next
+              </button>
+            </div>
+          )}
         </div>
       </div>
       {showModal && (
