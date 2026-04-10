@@ -70,7 +70,7 @@ export default function About() {
                 <li>Entity Framework Core</li>
                 <li>ASP.NET Core Identity</li>
                 <li>JWT Authentication</li>
-                <li>SQL Database Integration</li>
+                <li>PostgreSQL Database Integration</li>
               </ul>
             </div>
           </div>
